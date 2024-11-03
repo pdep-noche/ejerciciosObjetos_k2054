@@ -1,0 +1,33 @@
+import restaurante.*
+
+describe "tests restaurante" {
+	
+	
+	const comedido = new Comedido(montoMax = 500)
+	const julia = new Cliente(salario = 10000, tipo= comun)
+	
+	test "test cuanto abonara cliente comun" {
+		
+		assert.equals(3300, julia.totalAPagar(3000))
+
+	}
+	
+	test "test cuanto abonar cliente Comedido" {
+		
+		julia.tipo(comedido)
+		assert.equals(3500, julia.totalAPagar(3000))
+		
+	}
+	
+	test " test cuando abonar amarrete" {
+		julia.tipo(amarrete)
+		assert.equals(3000, julia.totalAPagar(3000))
+	}
+	
+	test "test cuando abona asalariado" {
+		julia.tipo(asalariado)
+		assert.equals(3100, julia.totalAPagar(3000))
+
+	}
+}
+

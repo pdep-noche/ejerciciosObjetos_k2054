@@ -1,0 +1,34 @@
+import micros.*
+describe "group of tests" {
+	
+	const unMicro = new Micro(cantSentados = 5, cantParados = 3, volumen = 100)
+ 
+	const juan = new Empleado(personalidad = claustrofobico)
+	
+	const ana = new Empleado(personalidad = apurado)
+
+	test "test Punto 1  Excepcion" {
+		
+	assert.throwsException({unMicro.subirA(juan)})
+
+	}
+	
+	test "test Punto 1 se puede subir" {
+		unMicro.subirA(ana)
+		assert.that(unMicro.esta(ana))
+	}
+	
+	
+	test " test Punto 2 Excepción " {
+		assert.throwsException({unMicro.bajarA(juan)})
+	
+	}
+	
+	test "test Punto 2 bajar a Ana" {
+		unMicro.subirA(ana)
+		unMicro.bajarA(ana)
+		assert.notThat(unMicro.esta(ana))
+	
+	}
+	
+	}

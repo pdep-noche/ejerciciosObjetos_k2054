@@ -1,0 +1,17 @@
+import cuentas.*
+
+describe "tests de cuentas" {
+	
+	const cuentaOrigen = new Cuenta(saldo = 5000)
+	const cuentaDestino = new Cuenta(saldo = 2000)
+
+	test "test saldo menor al monto a debitar" {		
+		assert.throwsException({cuentaOrigen.transferir(7000, cuentaDestino)})
+	}
+	
+	test "test saldo mayor al monto a debitar" {
+		cuentaOrigen.transferir(3000, cuentaDestino)
+		assert.equals(2000, cuentaOrigen.saldo())
+		assert.equals(5000, cuentaDestino.saldo())
+	}
+}

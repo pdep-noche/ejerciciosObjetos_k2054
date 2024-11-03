@@ -1,0 +1,37 @@
+import lavadero.*
+
+describe "group of tests" {
+	
+	const gaviota = new Gaviota(cantPescados = 3)
+	const paloma = new Paloma(peso = 200)
+	const formaV = new FormacionV()
+	const cotorra = new Ave(ensucia = 50)
+	const unaBandada = new Bandada(formacion = formaV )
+	const unVehiculo = new Vehiculo()
+	const wollokLav = new LavaderoArtesanal(cantPersonas = 3, costoMinuto= 500)
+	const lluviaCeniza = new LuviaCeniza(cantMilimetros = 10)
+	
+	method initialize() {
+		unaBandada.agregarAve(gaviota)
+		unaBandada.agregarAve(paloma)
+		unaBandada.agregarAve(cotorra)	
+		caba.agregarVehiculo(unVehiculo)
+		
+	}
+	
+	test " test Bandada Pasar PorAuto" {
+		unaBandada.ensuciar(unVehiculo)
+		assert.that(unVehiculo.nivelSuciedad() > 0)
+	}
+
+	test "Test Punto 1" {
+		assert.equals(3, unaBandada.cantidadDeAves())
+		assert.equals(formaV, unaBandada.formacion())
+
+	}
+	
+	test "test lluvia ceniza cae sobre caba" {
+		lluviaCeniza.lloverSobre(caba)
+		assert.equals(10,unVehiculo.nivelSuciedad())	
+	}
+}
